@@ -126,10 +126,59 @@ def problem12(weight, height):
     else:
         return result[3]
 
+#Coding problem 'Triangles'
+
+def problem13(a, b, c):
+    if((a+b) > c):
+        return 1
+    else:
+        return 0
+
+#Coding problem 'Weighted sum of digits'
+
+def problem14(number):
+    result = 0
+    stringified = str(number)
+    for i in range (len(stringified)):
+
+        result += ((i+1) * int(stringified[i]))
+
+    return result
+
+#Coding problem 'Average of an array'
+
+def problem15(list = []):
+    average  = 0
+
+    for i in list:
+        average += i
+
+    return average/len(list)
+
+#Coding problem 'Dice roll'
+import math
+def problem16(n):
+    return math.floor(n * 6) + 1
 
 
-a = [12, 23, 42]
+#Coding problem 'Array Checksum'
+
+def problem17(list = []):
+    result = 0
+
+    for i in list:
+        result += i
+        result *= 113 
+
+    return result % 10000007
+
+#Coding problem 'Reverse String'
+
+def problem18(string):
+    return string[::-1]
+    
+a = [3, 1, 4, 1, 5, 9]
 b = [424, 12, 22]
 c = [4, 15, 17]
 
-print(problem12(55, 1.58))
+print(problem18("dawid"))
