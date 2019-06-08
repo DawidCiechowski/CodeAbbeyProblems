@@ -176,9 +176,44 @@ def problem17(list = []):
 
 def problem18(string):
     return string[::-1]
+
     
-a = [3, 1, 4, 1, 5, 9]
+#Coding problem 'Array Counters'
+
+def problem19(list = []):
+    results = []
+
+    for i in range(len(list)):
+        counter = 0
+
+        for j in list:
+            if j == i:
+                counter += 1
+        
+        if(counter > 0):
+            results.append(counter)
+
+
+    return results
+
+#Coding problem 'Collatz Sequence'
+
+def problem20(start):
+
+    counter = 0
+    while(start != 1):
+        if(start % 2 == 0):
+            start = start / 2
+            counter += 1
+        else:
+            start = 3 * start + 1
+            counter += 1
+
+    return counter
+
+
+a = [3, 2, 1, 2, 3, 1, 1, 1, 1, 3]
 b = [424, 12, 22]
 c = [4, 15, 17]
 
-print(problem18("dawid"))
+print(problem20(97))
