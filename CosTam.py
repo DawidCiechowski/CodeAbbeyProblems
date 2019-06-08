@@ -166,8 +166,9 @@ def problem16(n):
 def problem17(list = []):
     result = 0
 
-    for i in list:
-        result += i
+    #Changes have been made to this problem, to complement problem 25 in which it was reused.
+    for i in range(len(list) - 1):
+        result += list[i]
         result *= 113 
 
     return result % 10000007
@@ -211,9 +212,131 @@ def problem20(start):
 
     return counter
 
+#Coding problem 'Modulo and time difference'
 
-a = [3, 2, 1, 2, 3, 1, 1, 1, 1, 3]
+def problem21(day1, hour1, min1, sec1, day2, hour2, min2, sec2):
+    dayDiff = day2-day1
+    hourDiff = hour2 - hour1
+    minDiff = min2 - min1
+    secDiff = sec2 - sec1
+
+    if(dayDiff < 1):
+        dayDiff = 31 + dayDiff
+
+    if(hourDiff < 0):
+        hourDiff = 24 + hourDiff
+
+    if(minDiff < 0):
+        minDiff = 60 + minDiff
+
+    if(secDiff < 0):
+        secDiff = 60 + secDiff
+
+    return dayDiff, hourDiff, minDiff, secDiff 
+
+#Coding problem 'Modular Calculator'
+
+def problem22(initial, signs = [], numbers = []):
+    final = initial
+    for i in range(len(signs) - 1):
+        if signs[i] == "*":
+            final *= numbers[i]
+        else:
+            final += numbers[i]
+    
+    return final % numbers[len(numbers) - 1]
+
+#Coding problem 'Greatest common divisor'
+
+def problem23(a, b):
+    gcd = 0
+    for i in range(min(a, b) - 1):
+        if((a % (i+1)) == 0 and (b % (i+1)) == 0):
+            gcd = i + 1
+
+    lcm = a * b / gcd
+
+    return gcd, int(lcm)
+    
+#Coding problem 'Sort with Indexes'
+
+def problem24(list = []):
+    indexes = {}
+    counter = 1
+    result = []
+
+    for i in list:
+        indexes[i] = counter
+        counter += 1
+
+    list = sort_list(list)
+
+
+    result = pair_results(indexes, list)
+
+    return result
+
+def sort_list(list):
+    for i in range(len(list) - 1):
+        for j in range(len(list) - i - 1):
+            if list[j] > list[j+1]: 
+                list[j], list[j+1] = list[j+1], list[j] 
+
+    return list
+
+def pair_results(ind, arr):
+    result = []
+    for val in arr:
+        for key in ind:
+            if(key == val):
+                result.append(ind[val])
+
+    return result
+
+#Coding problem 'Square Root'
+
+def problem25(x , n):
+    r = 1
+    d = x / r
+    for i in range(n):
+        d = x/r
+        r = (r+d) / 2
+    return r
+
+#Coding problem 'Bubble in Array'
+
+def problem26(list = []):
+    return bubble_sort_list(list)
+    
+def bubble_sort_list(list):
+    swaps = 0
+    for j in range(len(list) - 0 - 2):
+            if list[j] > list[j+1]:
+                list[j], list[j+1] = list[j+1], list[j]
+                swaps += 1
+    
+    return swaps, problem17(list)
+
+
+#Coding problem 'Palindromes'
+
+def problem27(string):
+    palindrome = ""
+    for i in string:
+        if(i.isalpha()):
+            palindrome += i.lower()
+
+    return palindrome == palindrome[::-1]
+
+#Coding problem 'Rotate String'
+
+def problem28(n, string):
+    return string[n:] + string[:n]
+
+d = ["+", "*", "+", "*", "*", "+", "%"]
+a = [3, 7, 10, 2, 3, 1, 11]
 b = [424, 12, 22]
-c = [4, 15, 17]
+c = [1, 4, 3, 2, 6, 5, -1]
 
-print(problem20(97))
+print(problem28(-6, "verycomplexnumber"))
+
