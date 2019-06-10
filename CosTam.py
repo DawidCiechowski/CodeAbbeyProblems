@@ -333,10 +333,60 @@ def problem27(string):
 def problem28(n, string):
     return string[n:] + string[:n]
 
+#Coding problem 'Neumann's Random Generator'
+#initial_value != n or counter <= 0
+from math import floor, log10
+def problem29(n):
+    initial_value = n
+    counter = 0
+    while(initial_value != n or counter <= 0):
+        n = n ** 2
+        print(n)
+        n = int(n / 100)
+        n = n / 10000
+        string = str(n).split('.')[1]
+        if(len(string) == 3):
+            string += "0"
+        elif(len(string) == 2):
+            string += "00"
+        n = int(string)
+        print(n)
+        counter += 1
+
+    return counter
+
+#Coding problem 'Fibonacci's Sequence'
+
+def problem30(n):
+    num1 = 0
+    num2 = 1
+    counter = 0
+    while(num2 <= n):
+        counter += 1
+        temp = num2
+        num2 = num2 + num1
+        num1 = temp
+
+    return counter
+    
+#Coding problem 'Pythagorean Theorem'
+
+def problem31(a, b, c):
+    if((c ** 2) == (a ** 2) + (b ** 2)):
+        return 'R'
+    elif((c ** 2) < (a ** 2) + (b ** 2)):
+        return 'A'
+    else:
+        return 'O'
+
+
 d = ["+", "*", "+", "*", "*", "+", "%"]
 a = [3, 7, 10, 2, 3, 1, 11]
 b = [424, 12, 22]
 c = [1, 4, 3, 2, 6, 5, -1]
 
-print(problem28(-6, "verycomplexnumber"))
+print(problem31(16, 12, 22))
 
+# string = "16810000"
+
+# print(string[2:len(string)-2])
