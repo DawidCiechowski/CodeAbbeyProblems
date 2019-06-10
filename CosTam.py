@@ -379,13 +379,53 @@ def problem31(a, b, c):
     else:
         return 'O'
 
+#Coding problem 'Smoothing the Weather'
+
+def problem32(list = []):
+    smoothed = []
+    for i in range(len(list)):
+        if(i == 0 or i == (len(list)) - 1):
+            smoothed.append(list[i])
+        else:
+            smoothed.append((list[i-1] + list[i] + list[i+1]) / 3)
+
+    return smoothed
+
+#Coding problem 'Bicycle Race'
+
+def problem33(s, a, b):
+    return s / (a+b)
+
+#Coding problem 'Josephus Problem'
+
+def problem34(people, step):
+    step -= 1 
+    index = step
+    while len(people) > 1:
+        people.pop(index)
+        index = (index + step) % len(people)
+
+    return people[0]
+
+#Coding problem 'Savings Calculator'
+
+def problem35(current, wanted, rate):
+    rate = rate / 100
+    years = 0
+    while(current < wanted):
+        years += 1
+        savings = current * rate
+        current = current + savings
+
+    return years
+
 
 d = ["+", "*", "+", "*", "*", "+", "%"]
 a = [3, 7, 10, 2, 3, 1, 11]
 b = [424, 12, 22]
-c = [1, 4, 3, 2, 6, 5, -1]
+c = [32.6, 31.2, 35.2, 37.4, 44.9, 42.1, 44.1]
 
-print(problem31(16, 12, 22))
+print(problem35(50, 100, 25))
 
 # string = "16810000"
 
